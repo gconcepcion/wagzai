@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pet Information Chatbot</title>
+</head>
+<body>
+    <h1>Pet Information Chatbot</h1>
+    <form action="/chat" method="post">
+        <input type="text" name="message" placeholder="Ask about a pet...">
+        <input type="submit" value="Send">
+    </form>
+    <div id="response"></div>
+    <script>
+        document.querySelector('form').onsubmit = async function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const response = await fetch('/chat', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+            document.getElementById('response').textContent = result.response;
+        }
+    </script>
+</body>
+</html>
