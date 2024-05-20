@@ -1,0 +1,13 @@
+# This file contains values from Cookiecutter
+
+default_context:
+  project_name: "wagzai"
+  project_description: "Awesome `wagzai` is a Python cli/package created with https://github.com/TezRomacH/python-package-template"
+  organization: "wagzai"
+  license: "Apache Software License 2.0"
+  minimal_python_version: 3.9
+  github_name: "wagzai"
+  email: "hello@wagz.ai"
+  version: "0.1.0"
+  line_length: "88"
+  create_example_template: "cli"
