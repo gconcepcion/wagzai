@@ -36,6 +36,8 @@ python = "^3.9"
 
 typer = {extras = ["all"], version = "^0.12.3"}
 rich = "^10.14.0"
+transformers = "^4.41.0"
+flask = "^3.0.3"
 
 [tool.poetry.dev-dependencies]
 bandit = "^1.7.1"
