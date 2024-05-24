@@ -1,26 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Pet Information Chatbot</title>
-</head>
-<body>
-    <h1>Pet Information Chatbot</h1>
-    <form action="/chat" method="post">
-        <input type="text" name="message" placeholder="Ask about a pet...">
-        <input type="submit" value="Send">
-    </form>
-    <div id="response"></div>
-    <script>
-        document.querySelector('form').onsubmit = async function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            const response = await fetch('/chat', {
-                method: 'POST',
-                body: formData
-            });
-            const result = await response.json();
-            document.getElementById('response').textContent = result.response;
-        }
-    </script>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>Wagz.ai - Home</title>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="my-4 text-center">Welcome to Wagz.ai!</h1>
+    <p class="lead text-center">
+      {% if not current_user.is_authenticated %}
+        Please <a href="{{ url_for('app.register') }}">register</a> or <a href="{{ url_for('app.login') }}">log in</a> to get started.
+      {% else %}
+        You are currently logged in as {{ current_user.email }}.
+      {% endif %}
+    </p>
+  </div>
+{% endblock %}

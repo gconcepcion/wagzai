@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>Wagz.ai - Login</title>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="my-4 text-center">Login</h1>
+    <form method="POST" action="{{ url_for('app.login') }}">
+      {{ form.csrf_token }}
+      {% if form.non_field_errors %}
+        <div class="alert alert-danger">
+          {% for error in form.non_field_errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if form.email.errors %}
+        <div class="alert alert-danger">
+          {% for error in form.email.errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+      <div class="form-group">
+        {{ form.email.label }}
+
+        {{ form.email(class='form-control') }}
+      </div>
+      {% if form.password.errors %}
+        <div class="alert alert-danger">
+          {% for error in form.password.errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+      <div class="form-group">
+        {{ form.password.label }}
+
+        {{ form.password(class='form-control') }}
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+{% endblock %}

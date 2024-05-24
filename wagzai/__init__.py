@@ -1,8 +1,8 @@
-# type: ignore[attr-defined]
 """Awesome `wagzai` is a Python cli/package created with https://github.com/TezRomacH/python-package-template"""
 
-import sys
 from importlib import metadata as importlib_metadata
+
+from flask import Flask
 
 
 def get_version() -> str:

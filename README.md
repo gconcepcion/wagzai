@@ -1,4 +1,4 @@
-<img src="assets/images/wagzai.webp" width="400" height="400"/>
+<img src="assets/images/wagzai.webp" width="400" height="400" ="center"/>
 
 # Pet Chatbot
 

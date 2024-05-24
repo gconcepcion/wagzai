@@ -3,7 +3,7 @@ import json
 from transformers import pipeline
 
 # Load pet information
-with open("wagzai/data/pet_info.json") as f:
+with open("data/pet_info.json") as f:
     pet_data = json.load(f)
 
 # Set up Hugging Face pipeline
