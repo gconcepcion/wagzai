@@ -23,7 +23,12 @@ Dashboard
         ImIn
         <li><a href="{{ url_for('app.about') }}">About</a></li>
         <li><a href="{{ url_for('app.contact') }}">Contact</a></li>
+
+        <li><a href="{{ url_for('app.chat') }}">Chat</a></li>
+
         <li><a href="{{ url_for('app.logout') }}">Logout</a></li>
+
+
         {% else %}
         ImOut
           <li><a href="{{ url_for('app.about') }}">About</a></li>
@@ -36,6 +41,7 @@ Dashboard
     
     <!-- Content -->
     {% block content %}{% endblock %}
+
 
     <!-- Footer -->
     <footer class="py-3 bg-light">

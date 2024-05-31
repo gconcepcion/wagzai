@@ -1,4 +1,4 @@
-from flask import Blueprint, flash, redirect, render_template, url_for
+from flask import Blueprint, flash, jsonify, redirect, render_template, request, url_for
 from flask_login import (
     LoginManager,
     current_user,
@@ -13,8 +13,10 @@ from wagzai.extensions import (  # Import the login_manager instance here
 )
 from wagzai.forms import LoginForm, RegistrationForm
 from wagzai.models import User
+from wagzai.nlp import process_query
 
 app_blueprint = Blueprint("app", __name__, template_folder="templates")
+
 login_manager.init_app(app_blueprint)  # Initialize the login manager
 
 
@@ -84,3 +86,17 @@ def home():
     if current_user.is_authenticated:
         return redirect(url_for("home"))
     return render_template("index.html")
+
+
+@app_blueprint.route("/chat", methods=["GET", "POST"])
+def chat():
+    if request.method == "POST":
+        # Your logic here to handle POST requests
+        #     print(request.data)
+        #    test = request.data.decode('utf-8')
+        #     print(request.data.decode('utf-8'))
+        resp = process_query(request.data.decode("utf-8"))
+        print(resp)
+        return jsonify({"message": resp})
+
+    return render_template("chat.html", title="Chat")

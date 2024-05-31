@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from flask_login import UserMixin
+from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from wagzai.extensions import db
@@ -31,3 +32,15 @@ class Task(db.Model):
 
     def __repr__(self):
         return f"<Task {self.title}>"
+
+
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.String(120), nullable=False)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+
+
+class MessageSchema(SQLAlchemyAutoSchema):
+    class Meta:
+        model = Message

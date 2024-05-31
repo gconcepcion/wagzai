@@ -36,3 +36,12 @@ input[type="text"], input[type="password"] {
 .form-control {
     margin-bottom: 10px;
 }
+
+#messages {
+    height: 300px;
+    overflow-y: scroll;
+  }
+  textarea {
+    width: calc(100% - 80px);
+    height: 40px;
+  }

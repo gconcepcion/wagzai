@@ -12,7 +12,10 @@
         Please <a href="{{ url_for('app.register') }}">register</a> or <a href="{{ url_for('app.login') }}">log in</a> to get started.
       {% else %}
         You are currently logged in as {{ current_user.email }}.
+
+
       {% endif %}
     </p>
   </div>
 {% endblock %}
+ 

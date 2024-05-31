@@ -1,3 +1,4 @@
+import flask_marshmallow
 from flask_babel import Babel
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
@@ -10,3 +11,6 @@ db = SQLAlchemy()
 
 # Create the Babel instance
 babel = Babel()
+
+# Initialize the Marshmallow instance
+ma = flask_marshmallow.Marshmallow()
