@@ -56,7 +56,7 @@ marshmallow-sqlalchemy = "^1.0.0"
 nltk = "^3.8.1"
 
 [tool.poetry.dev-dependencies]
-bandit = "^1.7.1"
+bandit = "^1.7.9"
 black = {version = "^24.4.2", allow-prereleases = true}
 darglint = "^1.8.1"
 isort = {extras = ["colors"], version = "^5.10.1"}
